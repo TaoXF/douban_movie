@@ -4,7 +4,6 @@
 框架 scrapy\
 去重数据库 redis\
 储存数据库 mongodb 或 mysql\
-数据库 mysql或mongodb\
 必须实现高匿名代理池\
 这里有一个简单的参考 https://github.com/txf19920101/proxy_pool
 
