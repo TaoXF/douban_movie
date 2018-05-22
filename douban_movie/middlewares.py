@@ -123,6 +123,7 @@ class ProxyMiddleware(object):
     # process_exception: change proxy retry when error
 
     def process_request(self, request, spider):
+        global PROXY
 
         if not request.meta.get('proxy'):
             try:
@@ -149,8 +150,6 @@ class ProxyMiddleware(object):
 
     def process_exception(self, request, exception, spider):
 
-        global PROXY
-
         logger.error("Error request url is %s" %request.url)
         try:
             del request.meta['proxy']
@@ -163,8 +162,6 @@ class CustomRetryMiddleware(RetryMiddleware):
     # change proxy when retry
 
     def process_response(self, request, response, spider):
-
-        global PROXY
 
         if request.meta.get('dont_retry', False):
             return response
